@@ -1,0 +1,89 @@
+h1, h3 {
+    font-family: comic sans ms;
+    color: white;
+}
+
+h1 {
+    font-size: 100px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+h3 {
+    font-size: 25px;
+    margin-bottom: 0px;
+}
+
+body {
+    text-align: center;
+    background-color: cadetblue;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: .5;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fullOpacity {
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn .25s ease-in 1 forwards;
+}
+
+.fade-out {
+    animation: fadeIn 0s ease-in 1 forwards;
+    animation: fadeOut .25s ease-in 1 forwards;
+}
+
+.fade-in-full {
+    opacity: 0;
+    animation: fullOpacity .25s ease-in 1 forwards;
+}
+
+.container_row {
+    position: relative;
+    width: 40%;
+    height: 520px;
+    margin: 20px auto;
+}
+
+.layer1 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    top: 10px;
+    margin-left: -250px;
+    z-index: 1;
+}
+
+#startButton {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    top: 10px;
+    margin-left: -250px;
+    z-index: 2;
+    background-color: white;
+    opacity: 0;
+}
+
+#startText {
+    font-family: comic sans ms;
+    margin-top: 150px;
+    font-size: 100px;
+    font-weight: 900;
+}

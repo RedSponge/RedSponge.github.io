@@ -1,0 +1,36 @@
+#main_title {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+#projects_title {
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+a {
+    color: orange;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+a:hover {
+    color:gold;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+* {
+    font-family: Comic sans ms;
+}
+
+#welcome_text {
+    color: red;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+body {
+    background-color: skyblue;
+    text-align: center;
+}
