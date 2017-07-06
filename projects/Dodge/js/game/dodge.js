@@ -10,7 +10,7 @@ var player;
 
 var game;
 
-function INIT() {
+async function INIT() {
     frame = new Frame();
     frame.init('canvas');
     frame.setBounds(500, 500);
@@ -18,7 +18,7 @@ function INIT() {
     player = Player(frame.getCanvas().width / 2 - 10, frame.getCanvas().height / 2 - 10, 20, 20, 'rgba(0, 255, 0, 1)', 1);
     game = new Game("Dodge", "1.0", ["Eran"]);
     game.startMessage();
-    //await sleep(500);
+    await sleep(500);
     wave1();
 }
 
