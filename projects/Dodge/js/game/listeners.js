@@ -73,6 +73,12 @@ document.onkeyup = function() {
     }
 }
 
+function canvasClicked() {
+    if(canRestart) {
+        setTimeout(restart, 100);
+    }
+}
+
 window.onload = function() {
     //console.log("Hi");
     INIT();

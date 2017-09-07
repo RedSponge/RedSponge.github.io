@@ -2,7 +2,15 @@ var player;
 var enemyList = {};
 var healingPointsList = {};
 
-
+/** 
+ * @param {Number} x the x position
+ * @param {Number} y the y position
+ * @param {Number} width the width of the entity
+ * @param {Number} height the height of the entity
+ * @param {String} color the color of the entity
+ * @param {Number} vx the x velocity of the entity
+ * @param {Number} vy the y velocity of the entity
+ */
 function Entity(x, y, width, height, color, vx, vy) {
     var self = {
         x: x,
@@ -47,11 +55,31 @@ function Entity(x, y, width, height, color, vx, vy) {
     return self;
 }
 
+/** 
+ * @param {Number} x the x position
+ * @param {Number} y the y position
+ * @param {Number} width the width of the entity
+ * @param {Number} height the height of the entity
+ * @param {String} color the color of the entity
+ * @param {Number} vx the x velocity of the entity
+ * @param {Number} vy the y velocity of the entity
+ */
 function Character(x, y, width, height, color, vx, vy) {
     var self = Entity(x, y, width, height, color, vx, vy);
     return self;
 }
 
+/** 
+ * @param {Number} x the x position
+ * @param {Number} y the y position
+ * @param {Number} width the width of the enemy
+ * @param {Number} height the height of the enemy
+ * @param {String} color the color of the enemy
+ * @param {Number} vx the x velocity of the enemy
+ * @param {Number} vy the y velocity of the enemy
+ * @param {Number} lifeTime the lifetime of the entity
+ * @param {Boolean} isHarming can the enemy harm the player
+ */
 function generateEnemy(x, y, width, height, color, vx, vy, lifeTime, isHarming) {
     var x = x;
     var y = y;
@@ -71,6 +99,17 @@ function generateEnemy(x, y, width, height, color, vx, vy, lifeTime, isHarming) 
     return enemyID;
 }
 
+/** 
+ * @param {Number} x the x position
+ * @param {Number} y the y position
+ * @param {Number} width the width of the enemy
+ * @param {Number} height the height of the enemy
+ * @param {String} color the color of the enemy
+ * @param {Number} vx the x velocity of the enemy
+ * @param {Number} vy the y velocity of the enemy
+ * @param {Number} lifeTime the lifetime of the enemy
+ * @param {Boolean} isHarming can the enemy harm the player
+ */
 function Enemy(x, y, width, height, color, vx, vy, lifeTime, isHarming) {
     var self = Character(x, y, width, height, color, vx, vy)
     var lifeCounter = 0;
@@ -100,11 +139,24 @@ function Enemy(x, y, width, height, color, vx, vy, lifeTime, isHarming) {
     return self.id;
 }
 
-function HealingPoint(x, y, width, height, color, vx, vy) {
+/** 
+ * @param {Number} x the x position
+ * @param {Number} y the y position
+ * @param {Number} width the width of the healing point
+ * @param {Number} height the height of the healing point
+ * @param {String} color the color of the healing point
+ * @param {Number} vx the x velocity of the healing point
+ * @param {Number} vy the y velocity of the healing point
+ * @param {Number} lifeTime the lifetime of the healing point
+ */
+function HealingPoint(x, y, width, height, color, vx, vy, lifeTime) {
     var self = Entity(x, y, width, height, color, vx, vy);
+    var lifeCounter = 0;
+    var lifeTime = lifeTime;
     self.update = function() {
         self.updateHealing();
         self.updatePosition();
+        self.updateLifetime();
         self.draw();
     }
     self.updateHealing = function() {
@@ -113,11 +165,30 @@ function HealingPoint(x, y, width, height, color, vx, vy) {
             delete healingPointsList[self.id]
         }
     }
+    self.updateLifetime = function() {
+        lifeCounter++;
+        if(lifeCounter > lifeTime) {
+            delete healingPointsList[self.id];
+        }
+    }
     healingPointsList[self.id] = self;
     return self;
 }
 
-function generateHealingPoint(x, y, width, height, color, isMoving, maxSpeed) {
+/** 
+ * @param {Number} x the x position
+ * @param {Number} y the y position
+ * @param {Number} width the width of the healing point
+ * @param {Number} height the height of the healing point
+ * @param {String} color the color of the healing point
+ * @param {Number} vx the x velocity of the healing point
+ * @param {Number} vy the y velocity of the healing point
+ * @param {Number} lifeTime the lifetime of the healing point
+ * @param {Boolean} isMoving is the healing point moving
+ * @param {Number} maxSpeed what is the max speed of the healing point (if moving)
+ */
+
+function generateHealingPoint(x, y, width, height, color, isMoving, maxSpeed, lifeTime) {
     var width = width || 20;
     var height = height || 20;
     var x = x || generateLocation(width);
@@ -127,17 +198,25 @@ function generateHealingPoint(x, y, width, height, color, isMoving, maxSpeed) {
     var vy = 0;
     var isMoving = isMoving;
     var maxSpeed = maxSpeed || 2;
+    var lifeTime = lifeTime || 1500;
     if(isNull(isMoving)) {
         isMoving = true;
     }
-    //console.log("Hi 2");
     if(isMoving) {
         vx = Math.random() * maxSpeed * 2 - maxSpeed;
         vy = Math.random() * maxSpeed * 2 - maxSpeed;
     }
-    HealingPoint(x, y, width, height, color, vx, vy);
+    HealingPoint(x, y, width, height, color, vx, vy, lifeTime);
 }
 
+/**
+ * @param {Number} x the x position
+ * @param {Number} y the y position
+ * @param {Number} width the width of the player
+ * @param {Number} height the height of the player
+ * @param {String} color the color of the player
+ * @param {Number} speed the speed of the player
+ */
 function Player(x, y, width, height, color, speed) {
     var self = Character(x, y, width, height, color, 5, 5);
     self.speed = speed;

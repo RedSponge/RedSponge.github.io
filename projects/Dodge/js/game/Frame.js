@@ -5,6 +5,7 @@ function Frame() {
     this.init = function(id) {
         canvas = document.getElementById(id);
         context = canvas.getContext('2d');
+        canvas.addEventListener('click', canvasClicked);
     }
     this.setBounds = function(width, height) {
         canvas.width = width;
@@ -57,7 +58,8 @@ function Frame() {
     var textColor = "white";
     var textFont = "comic sans ms";
     var HPText = "HP: "
-    this.setText = function(textInput, size, color, font) {
+
+    this.setText = function(textInput, size, color, font, style) {
         textFont = font || textFont;
         textSize = size || textSize;
         textColor = color || textColor;
@@ -141,5 +143,46 @@ function Frame() {
             this.rgbB = 0;
 
         this.updateColors();
-    }   
+    }
+    this.displayGameOver = function() {
+        if(running) {
+            console.log("%cThe Game is still running!", "color:orange");
+            return;
+        }
+        var ctx = context;
+        var opacity = 0;
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        var opacityInterval = setInterval(function(){
+            opacity += 0.01;
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+            frame.setText("Game Over", 80, "rgba(255,255,255,%o)".replace('%o', opacity));
+            frame.fillText();
+            if(opacity >= 1) {
+                clearInterval(opacityInterval);
+            }
+        }, 1000/60);
+        var waitUntilWaveBreak = setInterval(()=>{
+            var success = false;
+            if(beginTesting) {
+                console.log(beginTesting);
+                if(!success) {
+                    success = true;
+                    setTimeout(function(){
+                        frame.displayTryAgain();
+                        canRestart = true;
+                        clearInterval(waitUntilWaveBreak);
+                        return;
+                    },1000)
+                }
+            }
+        }, 1000);
+    }
+    this.displayTryAgain = () => {
+        var ctx = context;
+        ctx.font = "30px impact";
+        ctx.fillStyle = "green";
+        ctx.fillText("Click to try again", 250, 400);
+    }
 }

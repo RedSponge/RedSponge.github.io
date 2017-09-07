@@ -1,4 +1,4 @@
-var fps = 60;
+const fps = 60;
 
 var running = true;
 
@@ -10,16 +10,18 @@ var player;
 
 var game;
 
-async function INIT() {
+var canRestart = false;
+
+function INIT() {
     frame = new Frame();
     frame.init('canvas');
     frame.setBounds(500, 500);
     frame.setText(" ");
     player = Player(frame.getCanvas().width / 2 - 10, frame.getCanvas().height / 2 - 10, 20, 20, 'rgba(0, 255, 0, 1)', 1);
-    game = new Game("Dodge", "1.0", ["Eran"]);
+    game = new Game("Dodge", "1.0", ["RedSponge"]);
     game.startMessage();
-    await sleep(500);
-    wave1();
+    mainLoop = setInterval(update, 1000/fps);
+    setTimeout(wave1, 500);
 }
 
 function Stop() {
@@ -28,11 +30,15 @@ function Stop() {
         createBackground();
     }
     running = false;
+    createBackground();
+    clearInterval(mainLoop);
+    setTimeout(frame.displayGameOver(), 1000);
+    
 }
 
 
 
-var mainLoop = setInterval(update, 1000/fps);
+var mainLoop;
 
 function createBackground() {
     
@@ -71,11 +77,28 @@ function createBackground() {
 }
 
 function restart() {
+    if(running) {
+        console.log("%cThe game is still running!", "color:red");
+        return;
+    }
+    if(!beginTesting) {
+        console.log("%cStill finishing a wave!", "color:red");
+        return;
+    }
     player.reset();
     frame.goBackToDefaultBackground();
+    frame.setText(" ");
+    createBackground();
+    nextWave = wave1;
+    frame.setFade(false);
+    frame.setRainbow(false);
     enemyList = {};
     beginTesting = false;
     running = true;
+    canRestart = false;
+    HPSystem = false;
+    mainLoop = setInterval(update, 1000/fps);
+    setTimeout(wave1, 500);
 }
 
 function update() {

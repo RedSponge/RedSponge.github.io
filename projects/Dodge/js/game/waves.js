@@ -1,10 +1,9 @@
-var activeWave;
-var nextWave;
+var activeWave; //the active wave
+var nextWave; //the next wave
 
-var skipWave = false;
-var isSkippable = false;
+var letKeepHealing = false; //Keep the wave going until the player collects all the healing points
 
-var beginTesting = false;
+var beginTesting = false; //begin testing if all entities (except the player) have vanished
 
 var waveInterval = setInterval(function(){
     /*if(isSkippable && skipWave) {
@@ -13,8 +12,16 @@ var waveInterval = setInterval(function(){
         nextWave();
     }*/
     if(beginTesting) {
-        if(isObjectEmpty(enemyList)) {
+        if(!running){
+            enemyList = {};
+        }
+        else if(isObjectEmpty(enemyList)) {
+            if(!isObjectEmpty(healingPointsList) && letKeepHealing) {
+                return;
+            }
             beginTesting = false;
+            healingPointsList = {};
+            letKeepHealing = false;
             nextWave();
         }
     }
@@ -278,9 +285,9 @@ var wave11 = async function() {
 
 var wave12 = async function() {
     for(var i = 0; i < 10; i++) {
-        generateSplitter();
-        
+        generateSplitter(generateLocation(20), generateLocation(20), 20, 20, 3, 200, 500);
     }   
+    beginTesting = true;
 }
 
 function generateLocation(enemyWidth) {
