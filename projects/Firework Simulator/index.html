@@ -1,0 +1,28 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Firework Simulator 1.0</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <h1 class="title"><span id="fireworkTitle">Firework</span> <span id="simTitle">Simulator</span> 1.0</h1>
+        <h4 class="title">By Redsponge</h4>
+        <div id="container" class="flex">
+            <div id="settings">
+                <p>Fireworks per second: <input type="number" name="firepersec" value="10" id="firepersec" onchange="updateTimes()" min="1" max="1000"></input></p>
+                <p>Simulation speed: <input type="number" name="spd" value="60" id="spd" onchange="updateTimes()" min="1" max="1000"></input></p>
+                <p>Time:
+                    <select id="timeSelect" onchange="changeDaytime()">
+                        <option value="dawn">Dawn</option>
+                        <option value="morning">Morning</option>
+                        <option value="evening">Evening</option>
+                        <option value="night">Night</option>
+                        <option value="midnight" selected="selected">Midnight</option>
+                    </select>
+                </p>
+            </div>
+            <canvas id="canvas"></canvas>
+        </div>
+        <script src="js/firework.js"></script>
+    </body>
+</html>
