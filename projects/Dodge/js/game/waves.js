@@ -60,7 +60,7 @@ var wave2 = async function() {
             if(i == 5) {
                 y = 480
             }
-        generateEnemy(x, y, 20, 20, 'red', 2, 0, 1000);
+        generateEnemy(x, y, 20, 20, 'red', 4, 0, 240);
        await sleep(waveDelay);
     }
     beginTesting = true;
