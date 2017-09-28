@@ -34,3 +34,27 @@ body {
     background-color: skyblue;
     text-align: center;
 }
+
+table{
+    text-align: center;
+    border: 5px solid black;
+}
+
+
+#table_container {
+    text-align: center;
+    display:flex;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.typeTitle {
+    font-size: 50px;
+    min-width: 500px;
+    color: blue;
+    text-decoration: underline;
+    font-weight: bold;
+}

@@ -2,7 +2,12 @@ var title_text = document.getElementById('main_title');
 var project_title_text = document.getElementById('projects_title');
 var currentGId = 10;
 var GChange = 5;
-var colorInterval = setInterval(function(){updateColor(title_text);updateColor(project_title_text)}, 40);
+var colorInterval = setInterval(function(){
+    var elements = document.getElementsByClassName('glowing');
+    for(var i in elements) {
+        updateColor(elements[i]);
+    }
+}, 40);
 
 function updateColor(element) {
     
