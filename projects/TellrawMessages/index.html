@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minecraft Tellraw Messages</title>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1 class="mc title">Minecraft Tellraw Player Messages Generator</h1>
+        <h2 class="mc subtitle">By RedSponge, Version 1.0</h2>
+        <div id="selection" class="selection">
+            <p class="mc">
+                Please select action:
+                <select class="mc" id="selectaction" onchange="updateAction();">
+                    <option value="joinleave">Join / Leave</option>
+                    <option value="killed">Was Killed By</option>
+                    <option value="fakemsg">Fake Message</option>
+                    <option value="faketp">Fake Teleport</option>
+                </select>
+                <br/>
+                Please select target:
+                <select class="mc" id="selecttarget" onchange="updateSelect('target');">
+                    <option value="caster">Command Caster</option>
+                    <option value="closest">Closest Player</option>
+                    <option value="random">Random Player</option>
+                    <option value="all" selected>All Players</option>
+                    <option value="selector">Entity Selector</option>
+                    <option value="name">Player Name</option>
+                </select>
+                <p id="targetdatap" class="mc"></p>
+                <center><input id="targetdata" class="mc"></input></center>
+            </p>
+            <p class="mc">
+                Player Name: <input class="mc" id="player"></input>
+            </p>
+        </div>
+        <br class="joinleave actions"/>
+        <br class="joinleave actions"/>
+        <div id="joinleave" class="selection actions joinleave">
+            <p class="mc">
+                <span class="playerName"></span>
+                <select class="mc" id="selectjoinleave">
+                    <option value="joined">joined</option>
+                    <option value="left">left</option>
+                </select>
+                the game
+            </p>
+        </div>
+        <br class="killed actions"/>
+        <br class="killed actions"/>`
+        <div id="killed" class="selection actions killed">
+            <p class="mc"><span id="killedplayer" class="playerName">PlayerName</span> was <input placeholder="killed" id="killedaction" class="killedmsginput mc"></input> by <input placeholder="RedSpongeYT" id="killedby" class="killedmsginput mc"></input></p>
+        </div>
+        <br class="fakemsg actions"/>
+        <br class="fakemsg actions"/>
+        <div id="fakemsg" class="selection fakemsg actions">
+            <p class="mc">&lt;<span class="playerName"></span>&gt; <input class="mc" placeholder="Hi!" id="fakemsginput"></input></span></p>
+        </div>
+        <br class="faketp actions"/>
+        <br class="faketp actions"/>
+        <div id="faketp" class="selection actions faketp">
+            <p class="mc">Teleport to 
+                <select class="mc" id="faketpselect" onchange="updateSelect('faketp')">
+                    <option value="faketpcoords">Coordinates</option>
+                    <option value="faketpplayer">Player</option>
+                </select>
+            </p>
+            <p class="mc" id="faketpcoords">Teleported <span class="playerName"></span> to <br/><input placeholder="x" id="faketpX" class="faketpinput mc"></input> <input id="faketpY" placeholder="y" class="faketpinput mc"></input> <input id="faketpZ" placeholder="z" class="faketpinput mc"></input></p>
+            <p class="mc" id="faketpplayer">Teleported <span class="playerName"></span> to <input id="faketpplayername" placeholder="Player Name" class="mc"></input></p>
+        </div>
+        <br/>
+        <br/>
+        <div id="display" class="selection">
+            <br/>
+            <p title="CLICK TO COPY" class="code_display mc" id="code_display" onclick="copyCommand()">Howdy! Im Flowey!</p>
+        </div>
+        <script src="js/tellrawgen.js"></script>
+    </body>
+</html>

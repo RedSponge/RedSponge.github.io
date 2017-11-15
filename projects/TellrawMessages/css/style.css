@@ -1,0 +1,88 @@
+@font-face {
+    font-family: Minecraftia;
+    src: url("fonts/Minecraftia.ttf");
+}
+
+.selection {
+    text-align: center;
+    border: 1px solid black;
+    margin: auto;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+#targetdata {
+    text-align: center;
+}
+
+#code_display {
+    font-size: 17.58px;
+    width: 500px;
+    text-align: center;
+}
+
+.mc {
+    font-family: Minecraftia;
+}
+
+.title {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+#generate {
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+}
+
+#display {
+    width: 2000px;
+}
+
+#targetdata {
+    text-align: center;
+}
+
+#targetdatap {
+    margin-bottom: 0px;
+}
+
+.killedmsginput {
+    width: 100px;
+}
+
+#killedby {
+    width: 150px;
+}
+
+body {
+    background-color: darkslategray;
+}
+
+div {
+    background-color: lightgoldenrodyellow;
+}
+
+input {
+    background-color: lightblue;
+}
+
+select {
+    background-color: lightcyan;
+    box-shadow: 1px 1px 1px black;
+}
+
+.faketpinput {
+    width: 100px;
+    text-align: center;
+}
+
+#faketp {
+    width: 350px;
+}

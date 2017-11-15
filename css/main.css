@@ -58,3 +58,12 @@ table.center {
     text-decoration: underline;
     font-weight: bold;
 }
+
+@keyframes glow {
+    0% {color: red;}
+    50% {color:yellow;}
+    100% {color: red;}
+}
+.glowing {
+    animation: glow 1s infinite;
+}
