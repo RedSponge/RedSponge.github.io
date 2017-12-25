@@ -1,32 +1,71 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>RedSponge's Site</title>
+		<title>Welcome!</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
-	<body>
-		<h1 id="main_title" class="glowing">RedSponge's Site</h1>
-		<p id="welcome_text">Welcome to my site :D<br/> this place is going to host some random projects Im working on</p>
+	<body id="body" background="img/main/background.jpg">
+		<div class="center bordered" id="main_title_container">
+			<h1 class="title maintitle glowing">Welcome!</h1>
+			<h3 class="glowing title subtitle">to RedSponge's site!</h3>
+		</div>
+		<br/><br/>
+		<div class="center" id="project_title_container">
+			<h2 id="projects_title" class="title glowing">My Projects</h2>
+		</div>
+		<div id="projects_container">
+			<div id="projects_online">
+				<br/>
+				<a href="projects/Dodge" class="link centered">
+					<div id="link_dodge_container" class="link_container bordered center">
+						<h4 class="link_title title">Dodge</h4>
+						<div class="link_description_container" id="link_description_container_dodge">
+							<p class="link_description">Dodge other squares while being a green square! <br/> oh.. so intense</p>
+						</div>
+						<img src="img/prev/dodge_prev.png" class="link_img"></img>
+					</div>
+				</a>
+				<br/>
+				<a href="projects/EasiestGameEver" class="link centered">
+					<div id="link_easiestgame_container" class="link_container bordered center">
+						<h4 class="link_title title">Easiest Game Ever</h4>
+						<div class="link_description_container" id="like_description_container_easiestgame">
+							<p class="link_description">Try and win the easiest game ever! <br/> or lose.. whatever you want</p>
+						</div>
+						<img src="img/prev/easiestgame_prev.png" class="link_img"></img>
+					</div>
+				</a>
+				<br/>
+				<a href="projects/FireworkSimulator" class="link centered">
+					<div id="link_firework_container" class="link_container bordered center">
+						<h4 class="link_title title">Fireworks Simulator</h4>
+						<div class="link_description_container" id="link_description_container_firework">
+							<p class="link_description">A fancy firework simulator with some options and settings</p>	
+						</div>
+						<img src="img/prev/firework_prev.png" class="link_img"></img>
+					</div>
+				</a>
+				<br/>
+				<a href="projects/TellrawMessages" class="link centered">
+					<div id="link_tellraw_container" class="link_container bordered center">
+						<h4 class="link_title title" id="link_title_tellraw">Tellraw Messages Generator</h4>
+						<div class="link_description_container" id="link_description_container_tellraw">
+							<p class="link_description">Generate /tellraw commands for minecraft such as:</p>
+						</div>
+						<img src="img/prev/tellraw_prev.png" class="link_img"></img>
+					</div>
+				</a>
+			</div>
+		</div>
 
-		<h2 id="projects_title" class="glowing">My Projects</h2>
-		<div id="table_container">
-			<table class="center">
-				<tr>
-					<td class="typeTitle">Online</td>
-					<td class="typeTitle">Download</td>
-				</tr>
-				<tr>
-					<td> 
-						<a href="projects/Dodge/">Dodge Online</a></br>
-						<a href="projects/EasiestGameEver/">Easiest Game Ever</a></br>
-						<a href="projects/FireworkSimulator/">Firework Simulator</a><br/>
-						<a href="projects/TellrawMessages/">Tellraw Messages Generator</a>
-					</td>
-					<td>
-						<a href="files/dodge_java/DodgeJava.jar">Dodge Java</a>
-					</td>
-				</tr>			
-			</table>
+		<div id="version_container">
+			<br/>
+			<br/>
+			<br/>
+			<p id="credits" class="center">RedSponge main page v2.0, all rights reserved (c)</p>
+		</div>
+		<div class="center">
+			<a class="center" id="changelog" href="changelog/changelog.html">Changelog >></a>
 		</div>
 	</body>
 </html>
