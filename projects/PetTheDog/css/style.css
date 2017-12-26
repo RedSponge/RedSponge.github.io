@@ -1,0 +1,31 @@
+.title {
+    font-family: comic sans ms;
+    font-size: 50px;
+    color:white;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.img {
+    width: 115px;
+    height: 95px;
+}
+
+#pets_display {
+    font-family: comic sans ms;
+    font-size: 30px;
+    color: white;
+}
+
+body {
+    background-color: black;
+}
+
+#copyright {
+    color: white;
+    text-align: center;
+    margin-top: 320px;
+}
