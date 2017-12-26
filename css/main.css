@@ -68,6 +68,7 @@
     height: 125px;
     position: absolute;
     width: 500px;
+    transition: 0.25s ease-in-out;
 }
 
 .link_description_container:hover {
