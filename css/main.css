@@ -126,3 +126,11 @@
     height: 150px;
     position: unset;
 }
+
+.blackcolor {
+    color: black;
+}
+
+.bolded {
+    font-weight: bolder;
+}

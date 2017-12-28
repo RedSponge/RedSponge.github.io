@@ -12,6 +12,8 @@
 .img {
     width: 115px;
     height: 95px;
+    position: absolute;
+    margin-left: -50px;
 }
 
 #pets_display {
@@ -27,5 +29,5 @@ body {
 #copyright {
     color: white;
     text-align: center;
-    margin-top: 240px;
+    margin-top: 300px;
 }
