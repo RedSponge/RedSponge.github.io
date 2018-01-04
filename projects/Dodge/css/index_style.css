@@ -23,6 +23,10 @@ body {
     background-color: cadetblue;
 }
 
+#displayImg {
+    border-radius: 100px;
+}
+
 @keyframes fadeIn {
     to {
         opacity: .5;
@@ -83,6 +87,7 @@ body {
     z-index: 2;
     background-color: white;
     opacity: 0;
+    border-radius: 100px;
 }
 
 #startText {
@@ -114,4 +119,10 @@ a {
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
+}
+
+#copyright {
+    font-family: Calibri;
+    font-size: 15px;
+    color: white;
 }
