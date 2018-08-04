@@ -1,4 +1,4 @@
-document.onkeydown = function() {
+document.onkeydown = function(event) {
     var key = event.keyCode;
     //console.log(key);
     switch(key) {
@@ -21,7 +21,7 @@ document.onkeydown = function() {
     }
 }
 
-document.onkeyup = function() {
+document.onkeyup = function(event) {
     var key = event.keyCode;
 
     switch(key) {
