@@ -8,13 +8,18 @@
 <body>
     <div id="nav"></div>
 
-    <p class="title">These are my JAVA PROJECTS!</p>
+    <p class="title">These are my Java Projects!</p>
 
+    <div id="projects-placeholder">Loading...</div>
+
+    <script src="project-table-build.js"></script>
+    <script src="java/projects.js"></script>
     <script src="../lib/jquery.js"></script>
     <script>
             $(() => {
                 $("#nav").load("../nav.html");
             });
+            window.onload = () => { buildProjectTable(projects) };
     </script>
 </body>
 </html>

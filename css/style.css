@@ -6,10 +6,11 @@ body {
 
 nav table {
     width: 100%;
+    background-color: white;
 }
 
 nav table tr td {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 .nav-option {
@@ -47,6 +48,8 @@ nav table tr td {
     text-align: center;
     background-color: white;
     border-radius: 20px;
+    padding: 10px 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .dropdown-content {
@@ -93,6 +96,59 @@ a {
     color: inherit;
 }
 
+.introduction a {
+    color: gray;
+}
+
+.introduction a:hover {
+    font-weight: bold;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.projects tr {
+    text-align: center;
+    border: thin inset grey;    
+}
+
+.project-icon {
+    width: 10%;
+}
+
+.project-title {
+    width: 20%;
+    font-size: 48px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.project-description {
+    width: 40%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.project-links {
+    width: 10%;
+}
+
+.project-links a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.project-links a:hover {
+    font-weight: bold;
+}
+
+.project-status {
+    width: 20%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.project-status span {
+    font-weight: bold;
+}
+
+warn {
+    font-weight: bold;
+    color: #232323;
 }
