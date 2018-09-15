@@ -1,4 +1,7 @@
 import os
+import sys
+
+print sys.argv
 
 currentpath = "file:\\\\" + os.path.dirname(os.path.abspath(__file__))
 domain = "https://RedSponge.github.io"
@@ -6,7 +9,8 @@ domain = "https://RedSponge.github.io"
 navfile = open("nav.html", "r+")
 contents = navfile.read()
 navfile.close()
-a = raw_input("L(ocal) or U(niversal)?").upper()
+#a = raw_input("L(ocal) or U(niversal)?").upper()
+a = sys.argv[1]
 
 tofind = ""
 replaceto = ""
