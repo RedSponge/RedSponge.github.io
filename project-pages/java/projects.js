@@ -13,7 +13,7 @@ const projects = [
         "link": "https://github.com/RedSponge/RedUtils/releases"
     }
         ],
-        "status": 1
+        "status": 2
     },
 
     {
@@ -31,5 +31,18 @@ const projects = [
     }
         ],
         "status": 0
+    },
+
+    {
+      "icon": "java/keyboardlights-icon.png",
+      "title": "Keyboard Lights Animation",
+      "description": "A thingy that makes the NUMLOCK, CAPSLOCK and SCROLLLOCK do fancy light stuff from a script! (recommended only if you have a numpad with the leds above it)",
+      "links": [
+        {
+          "name": "Source Code",
+          "link": "https://github.com/RedSponge/KeyboardLights"
+        }
+      ],
+      "status": 1
     }
 ]

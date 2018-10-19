@@ -47,8 +47,11 @@ function buildProjectTable(projectArr) {
 
             icon.classList = "project-icon";
             let img = document.createElement("img");
-            img.src = project.icon;
-
+            if(project.icon != undefined) {
+                img.src = project.icon;
+            } else {
+                img.src = "default-icon.png";
+            }
             icon.appendChild(img);
 
             let title = document.createElement("td");
@@ -78,7 +81,7 @@ function buildProjectTable(projectArr) {
             tr.appendChild(description);
             tr.appendChild(links);
             tr.appendChild(status);
-        
+
             tbody.appendChild(tr);
         }
 

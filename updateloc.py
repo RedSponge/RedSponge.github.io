@@ -24,6 +24,7 @@ else:
     raise Exception("You didn't choose U or L")
 
 contents = contents.replace(tofind, toreplace)
+print "New contents", contents
 navfile = open("nav.html", "w")
 navfile.write(contents)
 navfile.close()
