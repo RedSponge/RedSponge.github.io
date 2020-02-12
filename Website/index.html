@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Bus Thing</title>
+	</head>
+	<body>
+		<table id="timeTable" style="width: 100%">
+			<tr>
+				<th>Line</th>
+				<th>Station</th>
+				<th>Answer</th>
+			</tr>
+		</table>
+	<script src="stations.js"></script>
+	<script>
+		function load() {
+			for(let line of lines) {
+				let id = line["id"]
+				for(let station of line["stations"]) {
+					let stat_id = station["id"]
+					let stat_name = station["name"]
+					let stat_dir = station["dir"]
+
+					let link = "http://www.kavim-t.co.il/include/getSiriNexBusString.aspx?lineinfoWS=" + id + "_h_18&stationCode=" + stat_id + "&dir=" + stat_dir;
+
+					let request = new XMLHttpRequest();
+					request.onreadystatemanager = function() {
+						console.log(request.responseText);
+					}
+					request.open('GET', link, true);
+					request.send()
+				}
+			}
+		}
+		
+	</script>
+	</body>
+</html>
